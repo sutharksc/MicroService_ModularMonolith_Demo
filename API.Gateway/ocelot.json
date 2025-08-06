@@ -12,6 +12,7 @@
       "UpstreamPathTemplate": "/gateway/order/get-by-id",
       "UpstreamHttpMethod": [ "POST" ]
     },
+
     {
       "DownstreamPathTemplate": "/api/booking-orders/create",
       "DownstreamScheme": "https",
