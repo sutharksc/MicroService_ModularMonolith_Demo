@@ -1,0 +1,42 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "SharedModule.Protos";
+package order;
+import "google/protobuf/any.proto";
+
+service OrderService {
+  rpc CreateOrder (CreateOrderRequest) returns (CreateOrderResponse);
+}
+
+message CreateOrderRequest {
+  string booking_id = 1;
+  string user_id = 2;
+  string order_date = 3;
+  double order_total = 4;
+  string payment_status = 5;
+  string order_status = 6;
+  repeated OrderEventRequest events = 7;
+}
+
+message OrderEventRequest {
+  string start_date = 2;
+  string end_date = 3;
+  string event_type = 4;
+  string name = 5;
+  string venue = 6;
+  double amount = 7;
+}
+
+// Use a wrapper message to include Result-style info
+message CreateOrderResponse {
+  bool is_success = 1;
+  ErrorDto error = 2;
+  google.protobuf.Any data = 3;
+  string message = 4;
+}
+
+message ErrorDto {
+  string code = 1;
+  string description = 2;
+  int32 status = 3;
+}

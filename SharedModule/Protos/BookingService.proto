@@ -1,0 +1,25 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "SharedModule.Booking.Grpc";
+
+package booking;
+
+// 🧾 Request message
+message GetBookingByIdRequest {
+  string id = 1; // Guid as string
+}
+
+// ✅ Response message
+message BookingResponse {
+  string id = 1;
+  string booking_date = 2;      
+  string customer_name = 3;
+  string customer_mobile = 4;
+  string customer_email = 5;
+  string customer_address = 6;
+}
+
+// 🧠 gRPC Service
+service BookingService {
+  rpc GetBookingById(GetBookingByIdRequest) returns (BookingResponse);
+}

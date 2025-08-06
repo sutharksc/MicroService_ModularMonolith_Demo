@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BookingModule.Domain\BookingModule.Domain.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Protobuf Include="..\SharedModule\Protos\OrderService.proto" GrpcServices="Both" Link="Protos\OrderService.proto" />
+		<Protobuf Include="..\SharedModule\Protos\BookingService.proto" GrpcServices="Both" Link="Protos\BookingService.proto" />
+		<PackageReference Include="Grpc.AspNetCore" Version="2.71.0" />
+	</ItemGroup>
+
+</Project>
